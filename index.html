@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Schedule</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="calendar">
+        <h1>Calendar Schedule</h1>
+        <table id="scheduleTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Schedule</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleList"></tbody>
+        </table>
+        <form id="scheduleForm">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="schedule">Schedule:</label>
+            <input type="text" id="schedule" name="schedule" required>
+            <input type="submit" value="Add Schedule">
+        </form>
+        <button id="loadSchedules">Load Schedules</button>
+    </div>
+    <script src="app.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js').then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch((error) => {
+                    console.log('Service Worker registration failed:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
